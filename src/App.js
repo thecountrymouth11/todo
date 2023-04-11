@@ -1,4 +1,4 @@
-function App(props) {
+function App() {
   return(
     <>
       <div className="todo">
