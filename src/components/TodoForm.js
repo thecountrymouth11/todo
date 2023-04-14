@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const TodoForm = () => {
+export const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
@@ -10,7 +10,8 @@ export const TodoForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
+    addTodo(value);
+    setValue("");
   };
   return (
     <form className="TodoForm" onSubmit={handleSubmit}>
@@ -18,6 +19,7 @@ export const TodoForm = () => {
         type="text"
         className="todo-input"
         placeholder="What's the Task today?"
+        value={value}
         onChange={handleChange}
       />
       <button type="submit" className="todo-btn">
